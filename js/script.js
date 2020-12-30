@@ -12,6 +12,7 @@ class Guess {
 		this.historyRecord = document.querySelector(".history__record");
 		this.statusIcon = document.querySelector(".status-icon");
 		this.gameOverlay = document.querySelector(".win-lose__overlay");
+		this.formElement = document.getElementById("input-form");
 
 		this.history = [];
 		this.maxChances = 10;
@@ -20,6 +21,10 @@ class Guess {
 
 		this.newGame();
 		this.checkButton.addEventListener("click", this.checkInput);
+		this.formElement.addEventListener("submit", (e) => {
+			e.preventDefault();
+			this.checkInput();
+		});
 	}
 
 	// New Game Function.
